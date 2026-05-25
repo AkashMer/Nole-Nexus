@@ -1,3 +1,36 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+// Grid background — echoes Excalidraw canvas feel
+body {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+//Homepage customizations
+// Hide date and read time
+body[data-slug="index"] .content-meta {
+  display: none;
+}
+
+// Hide sidebars and make content full width
+body[data-slug="index"] .left.sidebar,
+body[data-slug="index"] .right.sidebar {
+  display: none !important;
+}
+
+// Show the main content area and make it full width
+body[data-slug="index"] #quartz-body {
+  display: block !important;
+}
+
+// Center the content and set a max width for better readability
+body[data-slug="index"] .page > #quartz-body .center {
+  min-width: unset !important;
+  max-width: 1335px !important;
+  margin: 0 auto;
+  padding: 0 2rem;
+  float: none !important;
+}
