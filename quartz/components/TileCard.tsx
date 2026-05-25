@@ -1,11 +1,11 @@
 import { pathToRoot, joinSegments } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 
-const TILES: Record<string, { label: string; cardClass: string; svg?: string }> = {
-  Landscape: { label: "Landscape", cardClass: "card-landscape", svg: "landscape.svg" },
-  Roots:     { label: "Roots",     cardClass: "card-roots",     svg: "groots.svg"    },
-  Workbench: { label: "Workbench", cardClass: "card-workbench", svg: "workbench.svg" },
-  About:     { label: "About",     cardClass: "card-about"                           },
+const TILES: Record<string, { label: string; cardClass: string; svg?: string; isFolder?: boolean }> = {
+  Landscape: { label: "Landscape", cardClass: "card-landscape", svg: "landscape.svg", isFolder: true },
+  Roots:     { label: "Roots",     cardClass: "card-roots",     svg: "groots.svg",    isFolder: true },
+  Workbench: { label: "Workbench", cardClass: "card-workbench", svg: "workbench.svg", isFolder: true },
+  About:     { label: "About",     cardClass: "card-about"                                           },
 }
 
 const TileCard: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
@@ -16,7 +16,7 @@ const TileCard: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   if (!tile) return null
 
   const baseDir = pathToRoot(fileData.slug!)
-  const href = joinSegments(baseDir, topFolder)
+  const href = joinSegments(baseDir, topFolder) + (tile.isFolder ? "/" : "")
   const svgSrc = tile.svg ? joinSegments(baseDir, "static", tile.svg) : null
 
   return (

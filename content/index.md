@@ -11,19 +11,19 @@ _Dr. Akash Mer_
 
 <div class="home-card-grid">
   <div class="home-card card-landscape">
-    <a href="Landscape" class="card-link">
+    <a href="Landscape/" class="card-link">
       <span class="card-title">Landscape</span>
       <img src="static/landscape.svg" class="card-illustration" alt="" />
     </a>
   </div>
   <div class="home-card card-roots">
-    <a href="Roots" class="card-link">
+    <a href="Roots/" class="card-link">
       <span class="card-title">Roots</span>
       <img src="static/groots.svg" class="card-illustration" alt="" />
     </a>
   </div>
   <div class="home-card card-workbench">
-    <a href="Workbench" class="card-link">
+    <a href="Workbench/" class="card-link">
       <span class="card-title">Workbench</span>
       <img src="static/workbench.svg" class="card-illustration" alt="" />
     </a>
