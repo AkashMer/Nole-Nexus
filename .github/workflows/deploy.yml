@@ -1,38 +1,79 @@
-name: Deploy Quartz site to GitHub Pages
+# =============================================================================
+# Deploy
+# =============================================================================
+# Triggered when content is pushed to the v4 branch (either directly or via
+# the Transmit workflow from the private repo).
+#
+# Two jobs run in sequence:
+#   1. build  — installs dependencies, runs Quartz, uploads the output
+#   2. deploy — takes the built artifact and publishes it to GitHub Pages
+# =============================================================================
+
+name: Deploy
 
 on:
   push:
     branches:
       - v4
 
+# Permissions required by the deploy-pages action
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Prevent overlapping deployments — if a new push arrives while a deploy is
+# running, wait rather than cancel (avoids a half-deployed site)
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# Use Node.js 24 to avoid deprecation warnings (forced default from June 2026)
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
+
+  # ---------------------------------------------------------------------------
+  # Job 1: Build
+  # Installs dependencies, builds the Quartz site, uploads the output
+  # as a GitHub Pages artifact for the deploy job to consume
+  # ---------------------------------------------------------------------------
   build:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      # Fetch full history (fetch-depth: 0) so Quartz can generate
+      # accurate timestamps for each page
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install Dependencies
+
+      # npm ci installs exact versions from package-lock.json — faster and
+      # more reproducible than npm install
+      - name: Install dependencies
         run: npm ci
-      - name: Build Quartz
+
+      - name: Build Quartz site
         run: npx quartz build
-      - name: Upload artifact
+
+      # Upload the built 'public/' folder as an artifact so the deploy
+      # job can access it without rebuilding
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
 
+  # ---------------------------------------------------------------------------
+  # Job 2: Deploy
+  # Takes the artifact from the build job and publishes to GitHub Pages
+  # Runs only after build succeeds
+  # ---------------------------------------------------------------------------
   deploy:
     needs: build
     environment:
