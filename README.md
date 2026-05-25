@@ -1,17 +1,32 @@
-# Quartz v4
+# The Nole Nexus
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+**Nólë** (pronounced *noh-lay*) is a Quenya (High-elven) noun meaning "lore", "knowledge", "long study", or "wisdom" — *J.R.R. Tolkien's Elvish Language*
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+A personal knowledge garden by [Dr. Akash Mer](https://github.com/AkashMer) — capturing notes, literature reviews, and ideas at the intersection of neuroscience and open inquiry.
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+🔗 **Live site:** https://akashmer.github.io/Nole-Nexus
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+---
 
-## Sponsors
+## Sections
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+| Section | Description |
+|---|---|
+| **Landscape** | Literature notes — the current view of the field |
+| **Roots** | Foundational concepts and evergreen notes |
+| **Workbench** | Works in progress, experiments, and active thinking |
+| **About** | About this garden and its author |
+
+---
+
+## Built with
+
+- [Quartz v4](https://quartz.jzhao.xyz/) — static site generator for digital gardens
+- [Obsidian](https://obsidian.md/) — note-taking and knowledge management
+
+---
+
+## License
+
+Content (notes, writing) is licensed under [CC BY-NC 4.0](LICENSE).
+You are free to share and adapt the content for non-commercial purposes with attribution.
