@@ -72,6 +72,17 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       return crumb
     })
 
+    // Collapse folder-note duplicates: if the last two crumbs share the same display name,
+    // the file is an Obsidian folder note — drop the duplicate and mark the folder as current
+    if (crumbs.length >= 2) {
+      const last = crumbs[crumbs.length - 1]
+      const prev = crumbs[crumbs.length - 2]
+      if (last.displayName === prev.displayName && last.path === "") {
+        crumbs.pop()
+        crumbs[crumbs.length - 1].path = ""
+      }
+    }
+
     if (!options.showCurrentPage) {
       crumbs.pop()
     }

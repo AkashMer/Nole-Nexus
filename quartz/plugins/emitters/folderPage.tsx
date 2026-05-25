@@ -82,7 +82,14 @@ function computeFolderInfo(
   for (const [tree, file] of content) {
     const slug = stripSlashes(simplifySlug(file.data.slug!)) as SimpleSlug
     if (folders.has(slug)) {
+      // Standard Quartz: index.md inside a folder
       folderInfo[slug] = [tree, file]
+    } else {
+      // Obsidian Folder Notes: file shares the same name as its parent folder
+      const parentFolder = path.dirname(slug) as SimpleSlug
+      if (folders.has(parentFolder) && path.basename(slug) === path.basename(parentFolder)) {
+        folderInfo[parentFolder] = [tree, file]
+      }
     }
   }
 

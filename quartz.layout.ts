@@ -1,5 +1,19 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { FileTrieNode } from "./quartz/util/fileTrie"
+
+// Filter out folder-note files (Obsidian convention: file name = parent folder name)
+// so the explorer shows the folder as a plain clickable link with no child entry
+const explorerOpts = {
+  filterFn: (node: FileTrieNode) => {
+    if (node.slugSegment === "tags") return false
+    if (!node.isFolder) {
+      const parts = node.slug.split("/")
+      if (parts.at(-1) === parts.at(-2)) return false
+    }
+    return true
+  },
+}
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -27,6 +41,7 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+    Component.TileCard(),
     Component.Flex({
       components: [
         {
@@ -34,15 +49,12 @@ export const defaultContentPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.TableOfContents(),
+    Component.Explorer(explorerOpts),
   ],
-  right: [
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
-  ],
+  right: [],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
@@ -51,6 +63,7 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+    Component.TileCard(),
     Component.Flex({
       components: [
         {
@@ -60,7 +73,8 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.TableOfContents(),
+    Component.Explorer(explorerOpts),
   ],
   right: [],
 }
