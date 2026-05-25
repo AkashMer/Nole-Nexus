@@ -28,10 +28,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# Use Node.js 24 to avoid deprecation warnings (forced default from June 2026)
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
 
   # ---------------------------------------------------------------------------
@@ -41,6 +37,9 @@ jobs:
   # ---------------------------------------------------------------------------
   build:
     runs-on: ubuntu-22.04
+    # Force Node.js 24 on all actions in this job to avoid deprecation warnings
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       # Fetch full history (fetch-depth: 0) so Quartz can generate
       # accurate timestamps for each page
@@ -80,6 +79,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    # Force Node.js 24 on all actions in this job to avoid deprecation warnings
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
