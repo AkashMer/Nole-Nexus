@@ -2,14 +2,13 @@
 title: The Nole Nexus
 enableToc: false
 created: 2026-05-24
-modified: 2026-05-26
+modified: 2026-05-27
 ---
 
 **Nólë** (pronounced *noh-lay*) is a Quenya (High-elven) noun meaning "lore", "knowledge", "long study", or "wisdom" — *J.R.R. Tolkien's Elvish Language*
 
-*"The brain builds a spatial map from the brush of air on a forearm to the position of players across a football field that is more precise than any single sense alone. How?"*
+*The brain builds a spatial map from the brush of air on a forearm to the position of players across a football field that is more precise than any single sense alone. How?*
 
-Dr. Akash Mer
 
 <div class="home-card-grid">
   <div class="home-card card-landscape">
