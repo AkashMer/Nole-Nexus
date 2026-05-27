@@ -2,8 +2,6 @@
 
 **Nólë** (pronounced *noh-lay*) is a Quenya (High-elven) noun meaning "lore", "knowledge", "long study", or "wisdom" - *J.R.R. Tolkien's Elvish Language*
 
-A personal knowledge garden by [Dr. Akash Mer](https://github.com/AkashMer) — capturing notes, literature reviews, and ideas.
-
 🔗 **Live site:** https://akashmer.github.io/Nole-Nexus
 
 ---
@@ -12,7 +10,7 @@ A personal knowledge garden by [Dr. Akash Mer](https://github.com/AkashMer) — 
 
 | Section | Description |
 |---|---|
-| **Landscape** | Literature notes — the current view of the field |
+| **Landscape** | Literature notes; the current view of the field |
 | **Roots** | History tracing of Foundational Concepts |
 | **Workbench** | Application space for learned knowledge |
 | **About** | Me and my PKM philosophy |
@@ -31,3 +29,5 @@ A personal knowledge garden by [Dr. Akash Mer](https://github.com/AkashMer) — 
 
 Content (notes, writing) is licensed under [CC BY-NC 4.0](LICENSE).
 You are free to share and adapt the content for non-commercial purposes with attribution.
+
+[Dr. Akash Mer](https://github.com/AkashMer)

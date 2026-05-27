@@ -14,6 +14,12 @@ ArticleTitle.css = `
 .article-title {
   margin: 2rem 0 0 0;
 }
+
+.byline {
+  margin: 0.25rem 0 1rem 0;
+  font-size: 1.14rem;
+  color: var(--dark);
+}
 `
 
 export default (() => ArticleTitle) satisfies QuartzComponentConstructor
