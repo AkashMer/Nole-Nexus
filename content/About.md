@@ -16,7 +16,7 @@ Making clinical diagnoses involves a similar exercise. Two things helped me trem
 - talking through the problem with a team member or friend helps reorganize the entire information in a digestible manner, inducing new connections;
 - distracting myself from the problem if time allows. I prefer to game as a distraction.
 
-My PKM system evolved over the last few years. Every evolution was triggered by a limitation I experienced. From a rudimentary textual log to a mind-map based visual system, I was walking a path that serendipitously converged with Zsolt’s Sketch Your Mind philosophy(Viczian 2025). His approach helped me streamline my system into a cohesive framework, which allows me to build the posts on this website.
+My PKM system evolved over the last few years. Every evolution was triggered by a limitation I experienced. From a rudimentary textual log to a mind-map based visual system, I was walking a path that serendipitously converged with Zsolt’s Sketch Your Mind philosophy([Viczian 2025](#ref-Viczian_2025)). His approach helped me streamline my system into a cohesive framework, which allows me to build the posts on this website.
 
 Dr. Akash Mer
 
