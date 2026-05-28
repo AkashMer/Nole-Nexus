@@ -5,7 +5,7 @@ const TILES: Record<string, { label: string; cardClass: string; svg?: string; is
   Landscape: { label: "Landscape", cardClass: "card-landscape", svg: "landscape.svg", isFolder: true },
   Roots:     { label: "Roots",     cardClass: "card-roots",     svg: "groots.svg",    isFolder: true },
   Workbench: { label: "Workbench", cardClass: "card-workbench", svg: "workbench.svg", isFolder: true },
-  About:     { label: "About",     cardClass: "card-about"                                           },
+  About:     { label: "About",     cardClass: "card-about",  svg: "about.png"                      },
 }
 
 const TileCard: QuartzComponent = ({ fileData }: QuartzComponentProps) => {

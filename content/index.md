@@ -33,6 +33,7 @@ modified: 2026-05-27
   <div class="home-card card-about">
     <a href="About" class="card-link">
       <span class="card-title">About</span>
+      <img src="static/about.png" class="card-illustration" alt="" />
     </a>
   </div>
 </div>

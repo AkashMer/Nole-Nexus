@@ -109,12 +109,7 @@ body[data-slug="index"] footer {
 .card-landscape { background-color: #6741d980; }
 .card-roots     { background-color: #2f9e4480; }
 .card-workbench { background-color: #1971c280; }
-.card-about     { background-color: #e9ecef80; }
-
-// About card is light — swap to dark text
-.card-about .card-title {
-  color: rgba(0, 0, 0, 0.75);
-}
+.card-about     { background-color: #3b4a5480; }
 
 // Card illustration — default position bottom-right
 // transition on transform covers both the hover rotation and existing per-card transforms
@@ -136,18 +131,25 @@ body[data-slug="index"] footer {
 
 // Landscape illustration — bottom-left with padding
 .card-landscape .card-illustration {
-  height: 50%;
-  bottom: 1rem;
-  left: 1rem;
-  right: auto;
-  top: auto;
+  height: 48%;
+  inset: auto auto 1rem 0.01rem;
+  max-width: none;
 }
 
 // Workbench illustration — bottom-right with padding
 .card-workbench .card-illustration {
-  height: 60%;
-  bottom: 1rem;
+  height: 52%;
+  bottom: 0rem;
   right: 1rem;
+  max-width: none;
+}
+
+// About illustration — full-body figure, back flush with right edge
+.card-about .card-illustration {
+  height: 92%;
+  bottom: -17%;
+  right: -75px;
+  max-width: none;
 }
 
 // Roots illustration — bottom-center, rotated 30° anticlockwise
@@ -163,6 +165,12 @@ body[data-slug="index"] footer {
 // Roots hover: keep translateX, add the extra -20deg
 .home-card.card-roots:hover .card-illustration {
   transform: translateX(-50%) rotate(-50deg);
+}
+
+// About sidebar tile — reduce right offset since card is narrower than homepage
+.sidebar-tile.card-about .card-illustration {
+  right: -44px;
+  bottom: -20%;
 }
 
 // Sidebar tile card — same aspect ratio as homepage, illustrations scale proportionally
