@@ -1,18 +1,8 @@
-import mediumZoom, { Zoom } from "medium-zoom"
+import mediumZoom from "medium-zoom"
 
-let zoom: Zoom | null = null
+const zoom = mediumZoom("img:not(.card-illustration):not(.no-zoom)", {
+  margin: 24,
+  background: "var(--light)",
+})
 
-function setupZoom() {
-  if (zoom) {
-    zoom.detach()
-    zoom = null
-  }
-
-  zoom = mediumZoom("img:not(.card-illustration):not(.no-zoom)", {
-    margin: 24,
-    background: "var(--light)",
-  })
-}
-
-document.addEventListener("nav", setupZoom)
-setupZoom()
+window.addCleanup(() => zoom.detach())
