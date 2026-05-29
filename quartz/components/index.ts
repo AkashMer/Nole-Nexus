@@ -27,7 +27,6 @@ import TileCard from "./TileCard"
 import CitationMeta from "./CitationMeta"
 import LiteratureTable from "./LiteratureTable"
 import ThemeImageSwap from "./ThemeImageSwap"
-import ImageZoom from "./ImageZoom"
 
 export {
   ArticleTitle,
@@ -59,5 +58,4 @@ export {
   CitationMeta,
   LiteratureTable,
   ThemeImageSwap,
-  ImageZoom,
 }

@@ -19,7 +19,7 @@ const explorerOpts = {
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [Component.ThemeImageSwap(), Component.ImageZoom()],
+  afterBody: [Component.ThemeImageSwap()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/AkashMer/Nole-Nexus",
