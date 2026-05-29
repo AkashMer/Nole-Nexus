@@ -97,6 +97,14 @@ export default (() => {
             return resource
           }
         })}
+        {/* Per-page citation data store — non-persisted so the SPA router replaces it on
+            every navigation. CitationMeta's afterDOMLoaded script reads this to re-render
+            the right panel after SPA navigation without relying on micromorph for children. */}
+        <script
+          type="application/json"
+          id="citation-data"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(fileData.frontmatter ?? {}) }}
+        />
       </head>
     )
   }

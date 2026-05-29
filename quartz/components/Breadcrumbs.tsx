@@ -72,12 +72,14 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       return crumb
     })
 
-    // Collapse folder-note duplicates: if the last two crumbs share the same display name,
-    // the file is an Obsidian folder note — drop the duplicate and mark the folder as current
-    if (crumbs.length >= 2) {
-      const last = crumbs[crumbs.length - 1]
-      const prev = crumbs[crumbs.length - 2]
-      if (last.displayName === prev.displayName && last.path === "") {
+    // Collapse folder-note duplicates: an Obsidian folder note has the same filename as its
+    // parent folder (e.g. Landscape/@Noda_2024/@Noda_2024.md). We detect this by comparing
+    // slug segments on the trie nodes rather than display names, so it works regardless of
+    // what title the note carries (e.g. a full paper title from BetterBibTex frontmatter).
+    if (pathNodes.length >= 2) {
+      const lastNode = pathNodes[pathNodes.length - 1]
+      const prevNode = pathNodes[pathNodes.length - 2]
+      if (!lastNode.isFolder && prevNode.isFolder && lastNode.slugSegment === prevNode.slugSegment) {
         crumbs.pop()
         crumbs[crumbs.length - 1].path = ""
       }

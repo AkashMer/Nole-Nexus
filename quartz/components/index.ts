@@ -24,6 +24,10 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import TileCard from "./TileCard"
+import CitationMeta from "./CitationMeta"
+import LiteratureTable from "./LiteratureTable"
+import ThemeImageSwap from "./ThemeImageSwap"
+import ImageZoom from "./ImageZoom"
 
 export {
   ArticleTitle,
@@ -52,4 +56,8 @@ export {
   Flex,
   ConditionalRender,
   TileCard,
+  CitationMeta,
+  LiteratureTable,
+  ThemeImageSwap,
+  ImageZoom,
 }

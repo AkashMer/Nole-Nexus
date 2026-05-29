@@ -16,6 +16,15 @@ body {
 }
 
 //Homepage customizations
+// Byline (author name)
+body[data-slug="index"] p.byline {
+  color: var(--darkgray);
+}
+
+:root[saved-theme="dark"] body[data-slug="index"] p.byline {
+  color: var(--gray);
+}
+
 // Hide date and read time
 body[data-slug="index"] .content-meta {
   display: none;
@@ -197,56 +206,88 @@ li:has(> .folder-outer > ul.content:empty) {
 .callout[data-callout="red-flags"] {
   --color: #6C7DFF;
   --border: #6C7DFF44;
-  --bg: #6C7DFF10;
+  --bg: #6C7DFF1A;
   --callout-icon: var(--callout-icon-warning);
 }
 
 .callout[data-callout="synthesis"] {
   --color: #A882FF;
   --border: #A882FF44;
-  --bg: #A882FF10;
+  --bg: #A882FF1A;
   --callout-icon: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.35"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M16 14a2 2 0 0 0-2 2"/><path d="M16 22a2 2 0 0 1-2-2"/><path d="M20 14a2 2 0 0 1 2 2"/><path d="M20 22a2 2 0 0 0 2-2"/></svg>');
 }
 
 .callout[data-callout="open-questions"] {
   --color: #E9973F;
   --border: #E9973F44;
-  --bg: #E9973F10;
+  --bg: #E9973F1A;
   --callout-icon: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>');
 }
 
 .callout[data-callout="citation"] {
-  --color: #528BD4;
-  --border: #528BD444;
-  --bg: #528BD410;
+  --color: #9E9E9E;
+  --border: #9E9E9E44;
+  --bg: #9E9E9E1A;
   --callout-icon: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>');
 }
 
 .callout[data-callout="quote"] {
   --color: #9E9E9E;
   --border: #9E9E9E44;
-  --bg: #9E9E9E10;
+  --bg: #9E9E9E1A;
   --callout-icon: var(--callout-icon-quote);
 }
 
 .callout[data-callout="limitations"] {
   --color: #E6C37D;
   --border: #E6C37D44;
-  --bg: #E6C37D10;
+  --bg: #E6C37D1A;
   --callout-icon: var(--callout-icon-warning);
 }
 
-// LaTeX math color
+// Light mode callout backgrounds — bump to 26 (~15%) since light bg makes 1A feel faint
+:root:not([saved-theme="dark"]) {
+  .callout[data-callout="red-flags"]     { --bg: #6C7DFF26; }
+  .callout[data-callout="synthesis"]     { --bg: #A882FF26; }
+  .callout[data-callout="open-questions"]{ --bg: #E9973F26; }
+  .callout[data-callout="citation"]      { --bg: #9E9E9E26; }
+  .callout[data-callout="quote"]         { --bg: #9E9E9E26; }
+  .callout[data-callout="limitations"]   { --bg: #E6C37D26; }
+}
+
+// Heading colors — mirrors anp-header-color-toggle per heading level
+// Light: Solarized Light palette | Dark: Royal Velvet palette
+h1 { color: #D68138; } // ctp-custom-red (matches bold, warm golden-orange)
+h2 { color: #CB4B16; } // peach
+h3 { color: #859900; } // green
+h4 { color: #2AA198; } // teal
+h5 { color: #8B8FDE; } // lavender
+h6 { color: #6C71C4; } // mauve
+
+:root[saved-theme="dark"] {
+  h1 { color: #D68138; } // ctp-custom-red (burnt orange, matches bold)
+  h2 { color: #E6C37D; } // peach
+  h3 { color: #82EB82; } // green
+  h4 { color: #72E0D6; } // teal
+  h5 { color: #9A8DF7; } // lavender
+  h6 { color: #C592DE; } // mauve
+}
+
+// LaTeX math color — mirrors anp-latex-color (light: #3A6F78, dark: #59C9A5)
 .katex {
+  color: #3A6F78;
+}
+
+:root[saved-theme="dark"] .katex {
   color: #59C9A5;
 }
 
-// Bold text color
+// Bold text color — mirrors anp-bold-red / ctp-custom-red (#D68138 both modes)
 strong {
   color: #D68138 !important;
 }
 
-// Italic text color
+// Italic text color — mirrors anp-italic-sky (light: #0049D5, dark: #6C7DFF)
 em {
   color: #0049D5;
 }

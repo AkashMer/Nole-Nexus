@@ -16,7 +16,7 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "akashmer.github.io/Nole-Nexus",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -27,24 +27,28 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#FDF6E3",
-          lightgray: "#EDE8D6",
-          gray: "#839496",
-          darkgray: "#657B83",
-          dark: "#073642",
-          secondary: "#E38359",
-          tertiary: "#27A8D3",
+          // Solarized Light palette (ctp-solarized-light extended)
+          // accent: rosewater (ctp-accent-light-rosewater → #E38359)
+          light: "#FDF6E3",      // base
+          lightgray: "#EDE8D6",  // mantle
+          gray: "#93A1A1",       // overlay2
+          darkgray: "#333333",   // custom text override
+          dark: "#002B36",       // crust (darkest)
+          secondary: "#E38359",  // rosewater accent
+          tertiary: "#2AA198",   // teal
           highlight: "rgba(227, 131, 89, 0.15)",
           textHighlight: "#E3835988",
         },
         darkMode: {
-          light: "#1E1E24",
-          lightgray: "#383B4C",
-          gray: "#6E7291",
-          darkgray: "#D3D3C5",
-          dark: "#F8F8F2",
-          secondary: "#68C5F0",
-          tertiary: "#F6C999",
+          // Royal Velvet palette (ctp-royal-velvet extended)
+          // accent: sapphire (#68C5F0)
+          light: "#1E1E24",      // base
+          lightgray: "#383B4C",  // surface1
+          gray: "#8B8FA7",       // overlay2
+          darkgray: "#EAEAEA",   // custom text override
+          dark: "#F8F8F2",       // text (lightest)
+          secondary: "#68C5F0",  // sapphire accent
+          tertiary: "#F6C999",   // rosewater (warm highlight)
           highlight: "rgba(104, 197, 240, 0.15)",
           textHighlight: "#68C5F088",
         },

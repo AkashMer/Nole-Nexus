@@ -1,0 +1,83 @@
+.literature-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+
+  table.literature-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    thead tr {
+      border-bottom: 2px solid var(--lightgray);
+    }
+
+    th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--darkgray);
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        color: var(--dark);
+      }
+
+      &[aria-sort="ascending"]::after  { content: " ↑"; }
+      &[aria-sort="descending"]::after { content: " ↓"; }
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--lightgray);
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: var(--highlight);
+      }
+    }
+
+    td {
+      padding: 0.6rem 0.75rem;
+      color: var(--dark);
+      vertical-align: top;
+
+      &.lit-date {
+        white-space: nowrap;
+        color: var(--gray);
+        font-size: 0.85rem;
+      }
+
+      &.lit-title a {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &.lit-type {
+        white-space: nowrap;
+        color: var(--gray);
+        font-size: 0.85rem;
+      }
+
+      &.lit-author {
+        color: var(--darkgray);
+        font-size: 0.85rem;
+      }
+
+      &.lit-year {
+        white-space: nowrap;
+        color: var(--darkgray);
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

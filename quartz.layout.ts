@@ -19,7 +19,7 @@ const explorerOpts = {
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [Component.ThemeImageSwap(), Component.ImageZoom()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/AkashMer/Nole-Nexus",
@@ -54,7 +54,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TableOfContents(),
     Component.Explorer(explorerOpts),
   ],
-  right: [],
+  right: [Component.CitationMeta()],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)

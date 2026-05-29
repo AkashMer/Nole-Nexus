@@ -29,9 +29,9 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
 
   get displayName(): string {
     const nonIndexTitle = this.data?.title === "index" ? undefined : this.data?.title
-    return (
-      this.displayNameOverride ?? nonIndexTitle ?? this.fileSegmentHint ?? this.slugSegment ?? ""
-    )
+    const raw = this.displayNameOverride ?? nonIndexTitle ?? this.fileSegmentHint ?? this.slugSegment ?? ""
+    // Strip leading "@" — BetterBibTex citekeys use it internally but it should not appear on the site
+    return raw.replace(/^@/, "")
   }
 
   set displayName(name: string) {

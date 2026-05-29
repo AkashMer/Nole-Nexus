@@ -71,8 +71,10 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               },
             })
 
-            if (data.title != null && data.title.toString() !== "") {
-              data.title = data.title.toString()
+            // Check both "title" (Quartz default) and "Title" (BetterBibTex Zotero export convention)
+            const titleValue = coalesceAliases(data, ["title", "Title"])
+            if (titleValue != null && titleValue.toString() !== "") {
+              data.title = titleValue.toString()
             } else {
               data.title = file.stem ?? i18n(cfg.configuration.locale).propertyDefaults.title
             }
