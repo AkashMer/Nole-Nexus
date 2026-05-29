@@ -23,6 +23,7 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/AkashMer/Nole-Nexus",
+      "CC BY-NC 4.0": "https://creativecommons.org/licenses/by-nc/4.0/",
     },
   }),
 }
