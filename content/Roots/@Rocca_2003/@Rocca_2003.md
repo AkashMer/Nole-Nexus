@@ -34,12 +34,12 @@ Galen's move mirrors shrouding the approach as something that requires a level o
 Rocca shows that Galen moves even further from his ideal geometric proof by giving an account of his mostly animal dissection substrates. To me, this felt exactly as if Galen was building an ideological Frankenstein's monster from different animal parts to make his claims.  
 
 *Galen's psychic pneuma: On the surface, this thread is about pneuma's history and different versions. But at the core, it's really about how pneuma's malleability lets Galen elaborate psychic pneuma but fails to explain how pneuma mediates nervous activities.*  
-Again Galen was constrained by the prevalent pneuma theories of his era. I chose to capture the malleable nature of pneuma by using a meandering river. Galen provided excellent waypoints along the path to the ventricles for psychic pneuma. The path to his final destination is shown as incomplete by moving the destination away from the lake.
+Again Galen was constrained by the prevalent pneuma theories of his era. I chose to capture the malleable nature of pneuma by using a meandering river. Galen provided excellent waypoints along the path to the ventricles for psychic pneuma. The path to his final destination is shown as incomplete by moving the destination away from the lake.  
 
 Rocca's central insight for this chapter lives in the central claim of the visual.
 ## Galen's Ventricular Physiology
 ![[galens_ventricular_physiology_dark.svg]]\
-*On the surface, this chapter is about Galen's experimental methodology for studying the brain's ventricles. But at the core, it's really about Galen's anatomical expertise showing the reversibility of ventricular damage snaps pneuma from soul, turning a surgical observation into a philosophical argument.*
+*On the surface, this chapter is about Galen's experimental methodology for studying the brain's ventricles. But at the core, it's really about Galen's anatomical expertise showing the reversibility of ventricular damage snaps pneuma from soul, turning a surgical observation into a philosophical argument.*  
 Galen's experimental methodology is represented by the poking hand and incising scalpel. The fact that Galen was able to show differential effects for each ventricle and the reversal of the effect on removal of stimulus are a testament to his surgical skills. Galen elaborated psychic pneuma to the ventricles, but his demonstration of the reversal helped him separate the role of psychic pneuma and rational soul.  
 When reading about this separation, the sound of snapping 2 KitKat bars instantly echoed in my mind. The rational soul and psychic pneuma are like two KitKat bars joined at the seam, clearly separate but were given overlapping roles before Galen's demonstration.  
 
