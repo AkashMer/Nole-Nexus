@@ -6,7 +6,7 @@ authors:
 source: https://github.com/AkashMer/workbench/tree/main/scripts/noda-rep-maps-pipeline
 ---
 This post implements the representational map estimation pipeline
-visualized in [[Nole-Nexus Website/Landscape/@Noda_2024-03-22/@Noda_2024-03-22|@Noda_2024-03-22|Representational maps in the brain: concepts, approaches, and applications]]
+visualized in [[Landscape/@Noda_2024-03-22/@Noda_2024-03-22|Representational maps in the brain: concepts, approaches, and applications]].
 
 ## Stimulus Description
 
@@ -157,7 +157,7 @@ plt.show();
 
 <div id="fig-stimulus-structure">
 
-![](noda-rep-maps-pipeline_files/figure-commonmark/fig-stimulus-structure-output-1.png)
+![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-stimulus-structure-output-1.png)
 
 Figure 1: **Stimulus Structure**
 
@@ -514,7 +514,7 @@ plt.show();
 
 <div id="fig-behavioral_state">
 
-![](noda-rep-maps-pipeline_files/figure-commonmark/fig-behavioral_state-output-1.png)
+![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-behavioral_state-output-1.png)
 
 Figure 2: **Behavioral State Comparison** of 2 Blocks in Session
 `756029989` (Mouse ID - `734865738`)
@@ -626,7 +626,7 @@ plt.show();
 
 <div id="fig-population-reponse-space">
 
-![](noda-rep-maps-pipeline_files/figure-commonmark/fig-population-reponse-space-output-1.png)
+![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-population-reponse-space-output-1.png)
 
 Figure 3: **Area-wise RSM** for Block 1 of Session `756029989` (Mouse
 ID - `734865738`). *Brackets show mean trial-by-trial reliability
@@ -715,7 +715,7 @@ plt.show();
 
 <div id="fig-representational-map">
 
-![](noda-rep-maps-pipeline_files/figure-commonmark/fig-representational-map-output-1.png)
+![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-representational-map-output-1.png)
 
 Figure 4: **Area-wise MDS Representational Maps** (Block 1, Session
 `756029989`). *Points are colored based on stimulus clusters and each
@@ -777,7 +777,7 @@ plt.show();
 
 <div id="fig-validation">
 
-![](noda-rep-maps-pipeline_files/figure-commonmark/fig-validation-output-1.png)
+![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-validation-output-1.png)
 
 Figure 5: **RSA Validation**: Spearman *r* between each area’s neural
 RDM and the pixel RDM
@@ -864,7 +864,7 @@ plt.show();
 
 <div id="fig-appendix-behavioral">
 
-![](noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-behavioral-output-1.png)
+![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-behavioral-output-1.png)
 
 Figure 6: **Behavioral State Comparison** of 2 Blocks in Session
 `755434585` (Mouse ID - `730760270`)
@@ -919,7 +919,7 @@ plt.show();
 
 <div id="fig-appendix-rsm">
 
-![](noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-rsm-output-1.png)
+![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-rsm-output-1.png)
 
 Figure 7: **Block-wise RSM Comparison** for candidate sessions
 `755434585` and `756029989` (Selected block 1 shown explicitly in
@@ -929,6 +929,7 @@ green).
 
 </details>
 
+## References
 </div>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
