@@ -6,7 +6,7 @@ authors:
 source: https://github.com/AkashMer/workbench/tree/main/scripts/noda-rep-maps-pipeline
 ---
 This post implements the representational map estimation pipeline
-visualized in \[\[Noda et al. (2024)\]\].
+visualized in [[Nole-Nexus Website/Landscape/@Noda_2024-03-22/@Noda_2024-03-22|@Noda_2024-03-22|Representational maps in the brain: concepts, approaches, and applications]]
 
 ## Stimulus Description
 
