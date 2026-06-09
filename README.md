@@ -27,7 +27,7 @@
 
 ## License
 
-Content (notes, writing) is licensed under [CC BY-NC 4.0](LICENSE).
-You are free to share and adapt the content for non-commercial purposes with attribution.
+Content (notes, writing) is licensed under [CC BY 4.0](LICENSE).
+You are free to share and adapt the content for any purpose with attribution.
 
 [Dr. Akash Mer](https://github.com/AkashMer)
