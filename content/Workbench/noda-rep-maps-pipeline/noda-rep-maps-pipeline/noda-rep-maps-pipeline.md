@@ -1,28 +1,21 @@
----
-created: 2026-06-09
-modified: 2026-06-09
-Title: Estimation of Representational Maps in Mouse Visual Areas (Noda et al., 2024)
-authors:
-  - Dr. Akash Mer
-source: https://github.com/AkashMer/workbench/tree/main/scripts/noda-rep-maps-pipeline
----
+# Estimation of Representational Maps in Mouse Visual Areas (Noda et al., 2024)
+
+
 This post implements the representational map estimation pipeline
-visualized in [[Landscape/@Noda_2024-03-22/@Noda_2024-03-22|Representational maps in the brain: concepts, approaches, and applications]].
+visualized in \[\[Noda_2024-03-22\]\].
 
 ## Stimulus Description
 
 ### Experimental Setup
 
 The raw data came from the Allen Brain Observatory “Visual Coding”
-project([<span class="nocase">de Vries et al.</span>,
-2020](#ref-deVries_2020-01); [<span class="nocase">Siegle et al.</span>,
-2021](#ref-Siegle_2021-04a)). Mice were head-fixed in front of a monitor
-and shown various visual stimuli: drifting gratings, natural images and
-natural movies. During this time, neural activity was recorded using
-two-photon calcium imaging and Neuropixels probes in two different
-cohorts of mice. The following analysis is limited to sessions when the
-stimulus was Natural Movie 1. The stimulus is presented repeatedly. The
-Neuropixels recording sessions include two movie types:
+project\[@deVries_2020-01; @Siegle_2021-04a\]. Mice were head-fixed in
+front of a monitor and shown various visual stimuli: drifting gratings,
+natural images and natural movies. During this time, neural activity was
+recorded using two-photon calcium imaging and Neuropixels probes in two
+different cohorts of mice. The following analysis is limited to sessions
+when the stimulus was Natural Movie 1. The stimulus is presented
+repeatedly. The Neuropixels recording sessions include two movie types:
 
 - Natural Movie 1
 - Natural Movie 1 shuffled
@@ -154,7 +147,7 @@ plt.show();
 
 <div id="fig-stimulus-structure">
 
-![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-stimulus-structure-output-1.png)
+![](noda-rep-maps-pipeline_files/figure-commonmark/fig-stimulus-structure-output-1.png)
 
 Figure 1: **Stimulus Structure**
 
@@ -186,8 +179,7 @@ approximately 10-12 seconds.
 
 ### Preprocessed Data Structure
 
-The preprocessed data([Deitch et al., 2021](#ref-Deitch_2021-10-11)) is
-structured as follows:
+The preprocessed data\[@Deitch_2021-10-11\] is structured as follows:
 
 | **Modality** | **Variable Name** | **Structure** |
 |----|----|----|
@@ -322,14 +314,13 @@ pd.concat([calcium_area_wise[brain_areas[:6] + ['Total']].head(2),
 </div>
 
 None of the subjects under this modality had all the areas covered.
-([Noda et al., 2024](#ref-Noda_2024-03-22)) advises ideal cohort size
-for a representational map estimation to be 1 if sufficient number of
-neurons are recorded. One of the goals of this analysis is to portray
-various properties of a representational map defined in ([Noda et al.,
-2024](#ref-Noda_2024-03-22)). The hierarchical nature of
-representational maps cannot be shown in the case of the above calcium
-imaging data due to lack of coverage of all areas in a single subject.
-Thus, it was excluded from the analysis.
+\[@Noda_2024-03-22\] advises ideal cohort size for a representational
+map estimation to be 1 if sufficient number of neurons are recorded. One
+of the goals of this analysis is to portray various properties of a
+representational map defined in \[@Noda_2024-03-22\]. The hierarchical
+nature of representational maps cannot be shown in the case of the above
+calcium imaging data due to lack of coverage of all areas in a single
+subject. Thus, it was excluded from the analysis.
 
 #### Neuropixels
 
@@ -400,15 +391,15 @@ count, excluding thalamic areas (LGd, LP) which are harder to record.
 Session `755434585` / Mouse `730760270` and Session `756029989` / Mouse
 `734865738` were picked for applying the estimation pipeline since both
 had sufficient number of neurons in all areas with total number of
-neurons sitting within the range of 100s to tens of thousands([Noda et
-al., 2024](#ref-Noda_2024-03-22)).
+neurons sitting within the range of 100s to tens of
+thousands\[@Noda_2024-03-22\].
 
 ## Behavioral State
 
 Global brain states affect representational map estimates by suppressing
 elements or shifting their positions. Standardizing experimental
-conditions or measuring brain state explicitly is advised([Noda et al.,
-2024](#ref-Noda_2024-03-22)). The passive viewing design already
+conditions or measuring brain state explicitly is
+advised\[@Noda_2024-03-22\]. The passive viewing design already
 standardizes the experimental context. Several behavioral metrics such
 as pupil size, position, width, movement and running speed are measured
 and reported in the dataset.
@@ -487,7 +478,7 @@ plt.show();
 
 <div id="fig-behavioral_state">
 
-![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-behavioral_state-output-1.png)
+![](noda-rep-maps-pipeline_files/figure-commonmark/fig-behavioral_state-output-1.png)
 
 Figure 2: **Behavioral State Comparison** of 2 Blocks in Session
 `756029989` (Mouse ID - `734865738`)
@@ -504,13 +495,12 @@ computing Representational Similarity Matrix (RSM) for each area. The
 neuron spike counts were averaged across 9 frames in a bin which
 corresponds to ~300 ms. This time frame is near the upper range of
 neuron responses, thus enabling capture of population level
-dynamics([Piasini et al., 2021](#ref-Piasini_2021-07-21)). Pearson
-correlation was chosen since it is the standard metric for RSA. A
-crosswise single-trial correlation approach was implemented instead of
-averaging across trials. This allowed the diagonal of the matrix to
-serve as a trial-to-trial reliability measure, thus informing
-interpretation of representational map structure from the heatmap([Noda
-et al., 2024](#ref-Noda_2024-03-22)).
+dynamics\[@Piasini_2021-07-21\]. Pearson correlation was chosen since it
+is the standard metric for RSA. A crosswise single-trial correlation
+approach was implemented instead of averaging across trials. This
+allowed the diagonal of the matrix to serve as a trial-to-trial
+reliability measure, thus informing interpretation of representational
+map structure from the heatmap\[@Noda_2024-03-22\].
 
 <details class="code-fold">
 <summary>Code</summary>
@@ -592,7 +582,7 @@ plt.show();
 
 <div id="fig-population-reponse-space">
 
-![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-population-reponse-space-output-1.png)
+![](noda-rep-maps-pipeline_files/figure-commonmark/fig-population-reponse-space-output-1.png)
 
 Figure 3: **Area-wise RSM** for Block 1 of Session `756029989` (Mouse
 ID - `734865738`). *Brackets show mean trial-by-trial reliability
@@ -631,8 +621,8 @@ ID - `734865738`). *Brackets show mean trial-by-trial reliability
 
 The RSM structure shifts from temporal similarity in VISp to broad bin
 groupings in higher visual areas, which is consistent with the
-hierarchical characteristics of representational maps([Noda et al.,
-2024](#ref-Noda_2024-03-22)).
+hierarchical characteristics of representational
+maps\[@Noda_2024-03-22\].
 
 ## Visualizing the Representational Map
 
@@ -673,7 +663,7 @@ plt.show();
 
 <div id="fig-representational-map">
 
-![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-representational-map-output-1.png)
+![](noda-rep-maps-pipeline_files/figure-commonmark/fig-representational-map-output-1.png)
 
 Figure 4: **Area-wise MDS Representational Maps** (Block 1, Session
 `756029989`). *Points are colored based on stimulus clusters and each
@@ -728,7 +718,7 @@ plt.show();
 
 <div id="fig-validation">
 
-![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-validation-output-1.png)
+![](noda-rep-maps-pipeline_files/figure-commonmark/fig-validation-output-1.png)
 
 Figure 5: **RSA Validation**: Spearman *r* between each area’s neural
 RDM and the pixel RDM
@@ -736,31 +726,26 @@ RDM and the pixel RDM
 </div>
 
 Above comparison was done using **Python Representational Similarity
-Analysis toolbox** (rsatoolbox)([Bosch et al.,
-2025](#ref-Bosch_2025-05-27)).
+Analysis toolbox** (rsatoolbox)\[@Bosch_2025-05-27\].
 <a href="#fig-validation" class="quarto-xref">Figure 5</a> shows
 response spaces of higher visual areas correlate better with the
 stimulus pixel space. Following should be noted:
 
 - *VISp* is the least correlated which aligns with its role as a visual
-  cue detector([Harris et al., 2019](#ref-Harris_2019-11)).
+  cue detector\[@Harris_2019-11\].
 - *VISpm* and *VISam* are most correlated among the higher visual areas
   which aligns with their role as higher order areas along the dorsal
   stream which specializes in tracking global motion and spatial
-  features([Harris et al., 2019](#ref-Harris_2019-11);
-  [<span class="nocase">Siegle et al.</span>,
-  2021](#ref-Siegle_2021-04a)).
+  features\[@Harris_2019-11; @Siegle_2021-04a\].
 - *VISl*, *VISal* and *VISrl* sit between the above 2 extremes which
   aligns with their role as intermediates between primary visual area
   and higher order visual areas along the ventral and dorsal streams
   (VISal and VISrl) respectively. The ventral stream specializes in fine
-  spatial details such as shape, texture and object recognition([Harris
-  et al., 2019](#ref-Harris_2019-11); [<span class="nocase">Siegle et
-  al.</span>, 2021](#ref-Siegle_2021-04a)).
+  spatial details such as shape, texture and object
+  recognition\[@Harris_2019-11; @Siegle_2021-04a\].
 - *LGd*, a feedforward relay center and *LP*, a higher order routing
-  center show inverted pattern relative to their expected roles([Harris
-  et al., 2019](#ref-Harris_2019-11); [<span class="nocase">Siegle et
-  al.</span>, 2021](#ref-Siegle_2021-04a)). LGd’s low mean
+  center show inverted pattern relative to their expected
+  roles\[@Harris_2019-11; @Siegle_2021-04a\]. LGd’s low mean
   trial-to-trial reliability despite high RDM correlation between the
   response and stimulus space is puzzling. LP’s low neuron count (`27`)
   also limits confidence in its estimate. Further investigation of other
@@ -807,7 +792,7 @@ plt.show();
 
 <div id="fig-appendix-behavioral">
 
-![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-behavioral-output-1.png)
+![](noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-behavioral-output-1.png)
 
 Figure 6: **Behavioral State Comparison** of 2 Blocks in Session
 `755434585` (Mouse ID - `730760270`)
@@ -853,7 +838,7 @@ plt.show();
 
 <div id="fig-appendix-rsm">
 
-![](/Workbench/noda-rep-maps-pipeline/noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-rsm-output-1.png)
+![](noda-rep-maps-pipeline_files/figure-commonmark/fig-appendix-rsm-output-1.png)
 
 Figure 7: **Block-wise RSM Comparison** for candidate sessions
 `755434585` and `756029989` (Selected block 1 shown explicitly in
@@ -862,81 +847,3 @@ green).
 </div>
 
 ## References
-
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
-
-<div id="ref-Bosch_2025-05-27" class="csl-entry">
-
-Bosch, J. J. F. van den, Golan, T., Peters, B., Taylor, J., Shahbazi,
-M., Lin, B., Charest, I., Diedrichsen, J., Kriegeskorte, N., Mur, M., &
-Schütt, H. H. (2025). *A Python Toolbox for Representational Similarity
-Analysis* (p. 2025.05.22.655542). bioRxiv.
-<https://doi.org/10.1101/2025.05.22.655542>
-
-</div>
-
-<div id="ref-deVries_2020-01" class="csl-entry">
-
-<span class="nocase">de Vries, S. E. J., Lecoq, J. A., Buice, M. A.,
-Groblewski, P. A., Ocker, G. K., Oliver, M., Feng, D., Cain, N.,
-Ledochowitsch, P., Millman, D., Roll, K., Garrett, M., Keenan, T., Kuan,
-L., Mihalas, S., Olsen, S., Thompson, C., Wakeman, W., Waters, J., …
-Koch, C.</span> (2020). A large-scale standardized physiological survey
-reveals functional organization of the mouse visual cortex. *Nature
-Neuroscience*, *23*(1), 138–151.
-<https://doi.org/10.1038/s41593-019-0550-9>
-
-</div>
-
-<div id="ref-Deitch_2021-10-11" class="csl-entry">
-
-Deitch, D., Rubin, A., & Ziv, Y. (2021). Representational drift in the
-mouse visual cortex. *Current Biology*, *31*(19), 4327–4339.e6.
-<https://doi.org/10.1016/j.cub.2021.07.062>
-
-</div>
-
-<div id="ref-Harris_2019-11" class="csl-entry">
-
-Harris, J. A., Mihalas, S., Hirokawa, K. E., Whitesell, J. D., Choi, H.,
-Bernard, A., Bohn, P., Caldejon, S., Casal, L., Cho, A., Feiner, A.,
-Feng, D., Gaudreault, N., Gerfen, C. R., Graddis, N., Groblewski, P. A.,
-Henry, A. M., Ho, A., Howard, R., … Zeng, H. (2019). Hierarchical
-organization of cortical and thalamic connectivity. *Nature*,
-*575*(7781), 195–202. <https://doi.org/10.1038/s41586-019-1716-z>
-
-</div>
-
-<div id="ref-Noda_2024-03-22" class="csl-entry">
-
-Noda, T., Aschauer, D. F., Chambers, A. R., Seiler, J. P.-H., & Rumpel,
-S. (2024). Representational maps in the brain: Concepts, approaches, and
-applications. *Frontiers in Cellular Neuroscience*, *18*.
-<https://doi.org/10.3389/fncel.2024.1366200>
-
-</div>
-
-<div id="ref-Piasini_2021-07-21" class="csl-entry">
-
-Piasini, E., Soltuzu, L., Muratore, P., Caramellino, R., Vinken, K., Op
-de Beeck, H., Balasubramanian, V., & Zoccolan, D. (2021). Temporal
-stability of stimulus representation increases along rodent visual
-cortical hierarchies. *Nature Communications*, *12*(1), 4448.
-<https://doi.org/10.1038/s41467-021-24456-3>
-
-</div>
-
-<div id="ref-Siegle_2021-04a" class="csl-entry">
-
-<span class="nocase">Siegle, J. H., Jia, X., Durand, S., Gale, S.,
-Bennett, C., Graddis, N., Heller, G., Ramirez, T. K., Choi, H., Luviano,
-J. A., Groblewski, P. A., Ahmed, R., Arkhipov, A., Bernard, A., Billeh,
-Y. N., Brown, D., Buice, M. A., Cain, N., Caldejon, S., … Koch,
-C.</span> (2021). Survey of spiking in the mouse visual system reveals
-functional hierarchy. *Nature*, *592*(7852), 86–92.
-<https://doi.org/10.1038/s41586-020-03171-x>
-
-</div>
-
-</div>
