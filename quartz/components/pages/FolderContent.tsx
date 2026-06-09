@@ -104,19 +104,15 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         : htmlToJsx(fileData.filePath!, tree)
     ) as ComponentChildren
 
-    const LITERATURE_FOLDERS = ["landscape", "roots"]
-    const NO_LISTING_FOLDERS = ["workbench"]
+    const LITERATURE_FOLDERS = ["landscape", "roots", "workbench"]
     const topFolder = (fileData.slug ?? "").split("/")[0].toLowerCase()
     const usesLiteratureTable = LITERATURE_FOLDERS.includes(topFolder)
-    const suppressListing = NO_LISTING_FOLDERS.includes(topFolder)
 
     return (
       <div class="popover-hint">
         <article class={classes}>{content}</article>
         {usesLiteratureTable
           ? <LiteratureTable {...props} />
-          : suppressListing
-          ? null
           : (
             <div class="page-listing">
               {options.showFolderCount && (

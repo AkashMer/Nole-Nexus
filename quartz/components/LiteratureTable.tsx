@@ -4,7 +4,7 @@ import { trieFromAllFiles } from "../util/ctx"
 import { getDate, formatDate } from "./Date"
 import style from "./styles/literatureTable.scss"
 
-const LITERATURE_FOLDERS = ["landscape", "roots"]
+const LITERATURE_FOLDERS = ["landscape", "roots", "workbench"]
 
 function formatItemType(raw: string): string {
   return raw.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase())
@@ -21,6 +21,7 @@ export default (() => {
     const slug = fileData.slug ?? ""
     const topFolder = slug.split("/")[0].toLowerCase()
     if (!LITERATURE_FOLDERS.includes(topFolder)) return null
+    const isWorkbench = topFolder === "workbench"
 
     const trie = (ctx.trie ??= trieFromAllFiles(allFiles))
     const firstSeg = slug.split("/")[0]
@@ -56,8 +57,9 @@ export default (() => {
       const itemType = fm["itemType"] ? formatItemType(String(fm["itemType"])) : ""
       const author = formatAuthor(fm["authors"])
       const year = fm["Year"] ? String(fm["Year"]) : ""
+      const source = (fm["source"] as string | undefined) ?? ""
 
-      return { dateStr, dateIso, title, href, itemType, author, year }
+      return { dateStr, dateIso, title, href, itemType, author, year, source }
     })
 
     // Serialize rows for client-side sort
@@ -70,14 +72,21 @@ export default (() => {
           data-rows={rowsJson}
           data-sort-col="0"
           data-sort-dir="desc"
+          data-table-type={isWorkbench ? "workbench" : "literature"}
         >
           <thead>
             <tr>
               <th aria-sort="descending" data-col="0">Published</th>
               <th data-col="1">Title</th>
-              <th data-col="2">Type</th>
-              <th data-col="3">Author</th>
-              <th data-col="4">Year</th>
+              {isWorkbench ? (
+                <th data-col="2">Source</th>
+              ) : (
+                <>
+                  <th data-col="2">Type</th>
+                  <th data-col="3">Author</th>
+                  <th data-col="4">Year</th>
+                </>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -85,9 +94,17 @@ export default (() => {
               <tr>
                 <td class="lit-date"><time datetime={r.dateIso}>{r.dateStr}</time></td>
                 <td class="lit-title"><a href={r.href} class="internal">{r.title}</a></td>
-                <td class="lit-type">{r.itemType}</td>
-                <td class="lit-author">{r.author}</td>
-                <td class="lit-year">{r.year}</td>
+                {isWorkbench ? (
+                  <td class="lit-source">
+                    {r.source ? <a href={r.source} class="external" target="_blank" rel="noopener">Source ↗</a> : ""}
+                  </td>
+                ) : (
+                  <>
+                    <td class="lit-type">{r.itemType}</td>
+                    <td class="lit-author">{r.author}</td>
+                    <td class="lit-year">{r.year}</td>
+                  </>
+                )}
               </tr>
             ))}
           </tbody>
@@ -101,11 +118,20 @@ export default (() => {
       const rows = JSON.parse(table.dataset.rows || "[]");
       let sortCol = parseInt(table.dataset.sortCol ?? "0");
       let sortDir = table.dataset.sortDir ?? "desc"; // "asc" | "desc"
+      const tableType = table.dataset.tableType ?? "literature";
 
       const tbody = table.querySelector("tbody");
       const ths = table.querySelectorAll("th[data-col]");
 
       function cellValue(row, col) {
+        if (tableType === "workbench") {
+          switch (col) {
+            case 0: return row.dateIso;
+            case 1: return row.title.toLowerCase();
+            case 2: return row.source ? row.source.toLowerCase() : "";
+            default: return "";
+          }
+        }
         // col 0 = dateIso (sort key), col 1 = title, col 2 = itemType, col 3 = author, col 4 = year
         switch (col) {
           case 0: return row.dateIso;
@@ -125,15 +151,18 @@ export default (() => {
           return sortDir === "asc" ? cmp : -cmp;
         });
 
-        tbody.innerHTML = sorted.map(r =>
-          '<tr>' +
-          '<td class="lit-date"><time datetime="' + r.dateIso + '">' + r.dateStr + '</time></td>' +
-          '<td class="lit-title"><a href="' + r.href + '" class="internal">' + r.title + '</a></td>' +
-          '<td class="lit-type">' + r.itemType + '</td>' +
-          '<td class="lit-author">' + r.author + '</td>' +
-          '<td class="lit-year">' + r.year + '</td>' +
-          '</tr>'
-        ).join("");
+        tbody.innerHTML = sorted.map(r => {
+          const extraCells = tableType === "workbench"
+            ? '<td class="lit-source">' + (r.source ? '<a href="' + r.source + '" class="external" target="_blank" rel="noopener">Source ↗</a>' : '') + '</td>'
+            : '<td class="lit-type">' + r.itemType + '</td>' +
+              '<td class="lit-author">' + r.author + '</td>' +
+              '<td class="lit-year">' + r.year + '</td>';
+          return '<tr>' +
+            '<td class="lit-date"><time datetime="' + r.dateIso + '">' + r.dateStr + '</time></td>' +
+            '<td class="lit-title"><a href="' + r.href + '" class="internal">' + r.title + '</a></td>' +
+            extraCells +
+            '</tr>';
+        }).join("");
       }
 
       ths.forEach(th => {

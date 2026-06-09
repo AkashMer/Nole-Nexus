@@ -4,7 +4,7 @@ import style from "./styles/citationMeta.scss"
 // Ordered list of frontmatter fields to display. Only fields present in a note's
 // frontmatter are rendered — any missing or empty field is silently skipped.
 // Keys match BetterBibTex / Zotero export conventions (case-sensitive).
-const FIELDS: { key: string; label: string; list?: boolean }[] = [
+const FIELDS: { key: string; label: string; list?: boolean; url?: boolean }[] = [
   { key: "itemType", label: "Type" },
   { key: "DOI", label: "DOI" },
   { key: "authors", label: "Authors", list: true },
@@ -17,6 +17,8 @@ const FIELDS: { key: string; label: string; list?: boolean }[] = [
   { key: "ISBN", label: "ISBN" },
   { key: "Publisher", label: "Publisher" },
   { key: "Pages", label: "Pages" },
+  // Workbench posts: link to the source code repository
+  { key: "source", label: "Code", url: true },
 ]
 
 export default (() => {
@@ -24,7 +26,7 @@ export default (() => {
     const fm = fileData.frontmatter
     if (!fm) return null
 
-    const rows = FIELDS.flatMap(({ key, label, list }) => {
+    const rows = FIELDS.flatMap(({ key, label, list, url }) => {
       const val = fm[key]
       if (val === undefined || val === null || val === "") return []
       if (list && Array.isArray(val) && val.length === 0) return []
@@ -43,6 +45,13 @@ export default (() => {
         content = (
           <a href={`https://doi.org/${val}`} target="_blank" rel="noopener noreferrer">
             {String(val)}
+          </a>
+        )
+      } else if (url) {
+        // Render full-URL fields (e.g. source) as a plain "View ↗" link
+        content = (
+          <a href={String(val)} target="_blank" rel="noopener noreferrer">
+            View ↗
           </a>
         )
       } else {
@@ -81,7 +90,7 @@ export default (() => {
     function buildCitationHTML(fm) {
       if (!fm) return "";
 
-      const rows = CITATION_FIELDS.flatMap(({ key, label, list }) => {
+      const rows = CITATION_FIELDS.flatMap(({ key, label, list, url }) => {
         const val = fm[key];
         if (val === undefined || val === null || val === "") return [];
         if (list && Array.isArray(val) && val.length === 0) return [];
@@ -91,9 +100,12 @@ export default (() => {
           content = "<ul class=\\"citation-list\\">" + val.map(v => "<li>" + v + "</li>").join("") + "</ul>";
         } else if (key === "DOI") {
           content = "<a href=\\"https://doi.org/" + val + "\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">" + val + "</a>";
+        } else if (url) {
+          // Render full-URL fields (e.g. source) as a plain "View ↗" link
+          content = "<a href=\\"" + val + "\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">View ↗</a>";
         } else {
           // Convert camelCase itemType values to Title Case
-          const display = key === "DOI" ? val : (key === "itemType" ? String(val).replace(/([A-Z])/g, " $1").replace(/^./, s => s.toUpperCase()) : val);
+          const display = key === "itemType" ? String(val).replace(/([A-Z])/g, " $1").replace(/^./, s => s.toUpperCase()) : val;
           content = "<span>" + display + "</span>";
         }
         return ["<div class=\\"citation-row\\"><dt>" + label + "</dt><dd>" + content + "</dd></div>"];

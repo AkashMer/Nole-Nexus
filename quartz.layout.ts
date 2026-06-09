@@ -19,7 +19,8 @@ const explorerOpts = {
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [Component.ThemeImageSwap()],
+  // AppendixCollapse: collapses any heading starting with "Appendix" site-wide
+  afterBody: [Component.ThemeImageSwap(), Component.AppendixCollapse()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/AkashMer/Nole-Nexus",

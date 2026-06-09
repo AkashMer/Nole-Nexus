@@ -78,6 +78,20 @@
         color: var(--darkgray);
         font-size: 0.85rem;
       }
+
+      &.lit-source {
+        white-space: nowrap;
+        font-size: 0.85rem;
+
+        a {
+          color: var(--secondary);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
     }
   }
 }

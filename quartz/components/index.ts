@@ -27,6 +27,8 @@ import TileCard from "./TileCard"
 import CitationMeta from "./CitationMeta"
 import LiteratureTable from "./LiteratureTable"
 import ThemeImageSwap from "./ThemeImageSwap"
+// Collapses any heading that starts with "Appendix" (any level) by default
+import AppendixCollapse from "./AppendixCollapse"
 
 export {
   ArticleTitle,
@@ -58,4 +60,5 @@ export {
   CitationMeta,
   LiteratureTable,
   ThemeImageSwap,
+  AppendixCollapse,
 }
