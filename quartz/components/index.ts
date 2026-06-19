@@ -29,6 +29,7 @@ import LiteratureTable from "./LiteratureTable"
 import ThemeImageSwap from "./ThemeImageSwap"
 // Collapses any heading that starts with "Appendix" (any level) by default
 import AppendixCollapse from "./AppendixCollapse"
+import ProfileLinks from "./ProfileLinks"
 
 export {
   ArticleTitle,
@@ -61,4 +62,5 @@ export {
   LiteratureTable,
   ThemeImageSwap,
   AppendixCollapse,
+  ProfileLinks,
 }

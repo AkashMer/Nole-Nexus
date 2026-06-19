@@ -56,7 +56,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.TableOfContents(),
   ],
-  right: [Component.CitationMeta()],
+  right: [Component.CitationMeta(), Component.ProfileLinks()],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)

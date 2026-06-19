@@ -1,0 +1,51 @@
+.profile-links {
+  background-color: #8faaaa66;
+  border-radius: 8px;
+  padding: 1.25rem;
+
+  :root[saved-theme="dark"] & {
+    background-color: #a6bdc566;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+  }
+
+  dl {
+    margin: 0;
+  }
+
+  .profile-row {
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    dt {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--darkgray);
+    }
+
+    dd {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 400;
+
+      a {
+        color: var(--secondary);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
