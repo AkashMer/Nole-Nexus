@@ -55,7 +55,9 @@ In his second book, *The Passions of the Soul*, Descartes was able to give an al
 
 ## Fate of the pineal gland
 
-![[post-cartesian-pineal-gland_dark.svg|mindmap]]\
+![[post-cartesian-pineal-gland_dark.svg|mindmap]]
+
+
 
 > [!synthesis]
 > **Claim**: Descartes' mechanistic bellows-plus-pineal-gland model successfully links brain to perception, imagination, memory, and voluntary movement but breaks at the point where these functions must be unified under a rational soul. The soul remained merely an initiator with no account for its nature.
