@@ -38,6 +38,9 @@ Again Galen was constrained by the prevalent pneuma theories of his era. I chose
 
 Rocca's central insight for this chapter lives in the central claim of the visual.
 ## Galen's Ventricular Physiology
+
+^eb31b5
+
 ![[galens_ventricular_physiology_dark.svg]]\
 *On the surface, this chapter is about Galen's experimental methodology for studying the brain's ventricles. But at the core, it's really about Galen's anatomical expertise showing the reversibility of ventricular damage snaps pneuma from soul, turning a surgical observation into a philosophical argument.*  
 Galen's experimental methodology is represented by the poking hand and incising scalpel. The fact that Galen was able to show differential effects for each ventricle and the reversal of the effect on removal of stimulus are a testament to his surgical skills. Galen elaborated psychic pneuma to the ventricles, but his demonstration of the reversal helped him separate the role of psychic pneuma and rational soul.  
