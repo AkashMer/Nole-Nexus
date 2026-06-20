@@ -18,7 +18,7 @@ modified: 2026-06-20
 Across this wide spectrum of time, several shifts occurred:
 
 - The torch of physiological investigation moved eastward from Rome and Alexandria to the Eastern Mediterranean coastline during Late Antiquity. From there, the knowledge migrated deep into Mesopotamia and Central Asia during the Middle Ages. By this time, original Greek medical and philosophical knowledge was lost to the West, but was preserved and expanded by the Islamic Scholars in Arabic.
-- [[Nole-Nexus Website/Roots/@Rocca_2003/@Rocca_2003#^eb31b5|Galen's Ventricular Physiology]] was deepened to include localization of psychological faculties or neurological functions.
+- [[Roots/@Rocca_2003/@Rocca_2003#^eb31b5|Galen's Ventricular Physiology]] was deepened to include localization of psychological faculties or neurological functions.
 - Plato's tripartite soul philosophy also gained a localization characteristic.
 - The word 'worm' was used to refer three different things by the Middle Ages: vermis of cerebellum (Galen), choroid plexus and pineal body.
 - The intellectual hub shifted back to Europe during Renaissance when the now Arabic versions were translated into Latin, the universal language of the Church and educated elites.
@@ -50,7 +50,7 @@ This model was mechanistically plausible and Descartes was able to describe how 
 	- Muscles are like bellows used by a blacksmith.
 	- Opening and closing of valves controls the flow of the animal spirits through the hollow nerves, changing the tension of the bellows muscle.
 
-I chose to capture this model using chains extending outwards from the pineal gland. The central black box of soul resides in this gland, but the chains do not reach the soul signifying a gap that Descartes could not account for. The simple design of the concept visual is deliberate, since it highlights the most significant achievement of Descartes' model: [[Nole-Nexus Website/Roots/@Rocca_2003/@Rocca_2003#^eb31b5|Galen's Ventricular Physiology]] was now bridged to neurological functions beyond just the spread of animal spirits through the hollow nerves.  
+I chose to capture this model using chains extending outwards from the pineal gland. The central black box of soul resides in this gland, but the chains do not reach the soul signifying a gap that Descartes could not account for. The simple design of the concept visual is deliberate, since it highlights the most significant achievement of Descartes' model: [[Roots/@Rocca_2003/@Rocca_2003#^eb31b5|Galen's Ventricular Physiology]] was now bridged to neurological functions beyond just the spread of animal spirits through the hollow nerves.  
 In his second book, *The Passions of the Soul*, Descartes was able to give an alternate explanation: the soul is attached to whole body and cannot be confined to a singular structure.  
 
 ## Fate of the pineal gland
