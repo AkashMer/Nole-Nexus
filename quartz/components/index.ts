@@ -30,6 +30,7 @@ import ThemeImageSwap from "./ThemeImageSwap"
 // Collapses any heading that starts with "Appendix" (any level) by default
 import AppendixCollapse from "./AppendixCollapse"
 import ProfileLinks from "./ProfileLinks"
+import MindmapPanZoom from "./MindmapPanZoom"
 
 export {
   ArticleTitle,
@@ -63,4 +64,5 @@ export {
   ThemeImageSwap,
   AppendixCollapse,
   ProfileLinks,
+  MindmapPanZoom,
 }
