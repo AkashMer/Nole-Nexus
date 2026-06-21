@@ -44,7 +44,7 @@ jobs:
       # Fetch full history (fetch-depth: 0) so Quartz can generate
       # accurate timestamps for each page
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
