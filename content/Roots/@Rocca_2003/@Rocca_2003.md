@@ -20,6 +20,9 @@ The rhetoric-based argumentative methods of antiquity were the most eye-opening 
 I equated this move by Galen to him casting a "terrain spell" where he could showcase his expert dissection skills. The rejection of the anti-dissection sects was inherent to his design. But as demonstrated above, Galen's audience was a mix of partisans, skeptical fellow physicians and thinking, raised-eyebrow hostiles.  
 Rocca portrays Galen's success as a confluence of several factors: Galen's impressive academic genealogy; his arrival in Rome during the Pax Romana period; and his strategic choice of patrons and method.  
 ## Hegemonic Concept Development
+
+^e5e447
+
 ![[hegemonic_concept_development_dark.svg]]\
 *On the surface, this chapter is about opposing camps for the location of the hegemonikon. But at the core, it's really about prior commitment driving observable evidence enquiry for both hegemonikon camps, including Galen.*  
 The reoccurrence of the same debate across ~700 years stood out to me from the outset. I observed a consistent pattern across the time: philosophical commitments drove the enquiry. This was true for Galen as well since he explained his empirical evidence through the lens of Aristotelian first-principles philosophy.  
