@@ -1,5 +1,5 @@
 ---
-created: 2026-06-09
+created: 2026-07-14
 modified: 2026-07-14
 Title: Multiple Regression RSA of Scene-Selective Areas in Human fMRI
 authors:
