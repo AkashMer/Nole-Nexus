@@ -1,6 +1,6 @@
 ---
 created: 2026-07-14
-modified: 2026-07-14
+modified: 2026-07-15
 Title: Multiple Regression RSA of Scene-Selective Areas in Human fMRI
 authors:
   - Dr. Akash Mer
@@ -926,7 +926,7 @@ Figure 2: **RDM Robustness Check**: *mean off-diagonal crossnobis distance (dot
 
 </div>
 
-From the surviving ROIs, the following hierarchical hypothesis is defined: *left V1d* $\to$ *left V2d* $\to$ *left OPA*.
+From the surviving ROIs, the following hierarchical hypothesis is defined: *left V1d* $\to$ *left V2d* $\to$ *left OPA*.  The rationale for choosing only the dorsal primary areas is the OPA's greater sensitivity to lower visual field([Epstein & Baker, 2019](#ref-Epstein_2019)).
 
 ## Visualizing the Representational Map
 
