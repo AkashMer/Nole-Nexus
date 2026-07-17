@@ -21,7 +21,13 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   // AppendixCollapse: collapses any heading starting with "Appendix" site-wide
-  afterBody: [Component.ThemeImageSwap(), Component.AppendixCollapse(), Component.MindmapPanZoom()],
+  // AddendumDate: tightens spacing between "Addendum" headings and their date line
+  afterBody: [
+    Component.ThemeImageSwap(),
+    Component.AppendixCollapse(),
+    Component.AddendumDate(),
+    Component.MindmapPanZoom(),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/AkashMer/Nole-Nexus",

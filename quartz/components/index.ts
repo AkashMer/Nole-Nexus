@@ -29,6 +29,8 @@ import LiteratureTable from "./LiteratureTable"
 import ThemeImageSwap from "./ThemeImageSwap"
 // Collapses any heading that starts with "Appendix" (any level) by default
 import AppendixCollapse from "./AppendixCollapse"
+// Tightens spacing between an "Addendum" heading and its following date line
+import AddendumDate from "./AddendumDate"
 import ProfileLinks from "./ProfileLinks"
 import MindmapPanZoom from "./MindmapPanZoom"
 
@@ -63,6 +65,7 @@ export {
   LiteratureTable,
   ThemeImageSwap,
   AppendixCollapse,
+  AddendumDate,
   ProfileLinks,
   MindmapPanZoom,
 }

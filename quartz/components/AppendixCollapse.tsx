@@ -55,16 +55,33 @@ export default (() => {
     .appendix-heading {
       cursor: pointer;
       user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35em;
+      border-radius: 6px;
+      padding: 0.1em 0.4em;
+      margin: 0 -0.4em;
+      transition: background-color 0.15s ease;
     }
+    .appendix-heading:hover {
+      background-color: var(--lightgray);
+    }
+    /* chevron rotated on toggle instead of glyph-swapped */
     .appendix-heading::after {
-      content: " ▸";
-      font-size: 0.7em;
-      opacity: 0.55;
-      vertical-align: middle;
+      content: "▶";
+      display: inline-block;
+      font-size: 0.65em;
+      opacity: 0.7;
       color: var(--gray);
+      transition: transform 0.3s ease;
+      transform: rotate(0deg);
     }
     .appendix-heading:not(.is-collapsed)::after {
-      content: " ▾";
+      transform: rotate(90deg);
+    }
+    /* suppress Quartz's built-in heading-anchor link, only for Appendix headings */
+    .appendix-heading > a[href^="#"] {
+      display: none;
     }
     .appendix-content {
       display: grid;
