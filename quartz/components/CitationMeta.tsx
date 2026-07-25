@@ -23,6 +23,11 @@ const FIELDS: { key: string; label: string; list?: boolean; url?: boolean }[] = 
 
 export default (() => {
   function CitationMeta({ fileData }: QuartzComponentProps) {
+    const slug = fileData.slug!
+    // Roots/Landscape notes show a LinkedIn reach-out panel (ProfileLinks) instead —
+    // their bibliographic fields still exist in frontmatter but would just be noise here.
+    if (slug.startsWith("Roots/") || slug.startsWith("Landscape/")) return null
+
     const fm = fileData.frontmatter
     if (!fm) return null
 
@@ -123,6 +128,14 @@ export default (() => {
       const existing = sidebar.querySelector(".citation-meta");
       if (existing) existing.remove();
 
+      // Roots/Landscape notes show the LinkedIn reach-out panel (ProfileLinks) instead
+      const slug = document.body.dataset.slug || "";
+      const segments = slug.split("/").filter(Boolean);
+      const isReachOut =
+        segments[segments.length - 1] !== "index" &&
+        (segments[0] === "Roots" || segments[0] === "Landscape");
+      if (isReachOut) return;
+
       // Read frontmatter from the non-persisted head script the SPA router just replaced
       const store = document.getElementById("citation-data");
       if (!store) return;
@@ -136,7 +149,12 @@ export default (() => {
       const panel = document.createElement("div");
       panel.className = "citation-meta";
       panel.innerHTML = html;
-      sidebar.appendChild(panel);
+      // Prepend rather than append: this handler always rebuilds itself on
+      // every nav (unlike ProfileLinks, which skips unchanged variants), so
+      // appending would push it below a ProfileLinks panel left in place —
+      // prepend keeps Source pinned above the reach-out panel regardless of
+      // which script runs first.
+      sidebar.prepend(panel);
     });
   `
 
