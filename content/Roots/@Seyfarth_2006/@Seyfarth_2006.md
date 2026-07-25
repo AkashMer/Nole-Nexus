@@ -13,8 +13,7 @@ DOI: 10.1007/s00422-005-0031-y
 created: 2026-07-25
 modified: 2026-07-25
 ---
-
-<a href="Roots/@Smith_2012-07-11/@Smith_2012-07-11" class="wikilink">The Animal Spirit Doctrine and the Origins of Neurophysiology</a> showed the extended nature of the paradigm shift which led to the birth of modern neurophysiology. Julius Bernstein’s *electrochemical Membrantheorie* is considered one of the pivotal moments, but it was not a simple linear arc. During the late 19th century two opposing theories were proposed to explain the advanced galvanometer readings from nerve and muscle preparations:
+<a href="Roots/@Smith_2012-07-11/@Smith_2012-07-11" class="wikilink">The Animal Spirit Doctrine and the Origins of Neurophysiology</a> showed the extended nature of the paradigm shift which led to the birth of modern neurophysiology. Julius Bernstein’s *electrochemical Membrantheorie* is considered one of the pivotal moments, but it was not a simple linear arc. During the late 19th century two opposing theories were proposed to explain the advanced galvanometer readings from nerve and muscle preparations:  
 
 - [Emil du Bois-Reymond](https://en.wikipedia.org/wiki/Emil_du_Bois-Reymond)’s molecular theory based on “electromotive particles” ([Smith et al., 2012](#ref-Smith_2012-07-11))
 - [Ludimar Hermann](https://en.wikipedia.org/wiki/Ludimar_Hermann)’s alteration theory which attributed the electromotive effects of animal tissues to chemical changes manifested as atrophy and necrosis ([De Palma & Pareti, 2011](#ref-DePalma_2011))
@@ -23,14 +22,14 @@ Both Hermann and Bernstein were students of du Bois-Reymond and Bernstein critic
 
 ## Birth of the Cell Membrane
 
-<img src="cell-membrane-to-bernstein_dark.svg" class="wikilink" alt="cell-membrane-to-bernstein_dark.svg" />\
+<img src="cell-membrane-to-bernstein_dark.svg" class="wikilink" alt="mindmap" />\
 ([Lombard, 2014](#ref-Lombard_2014)) describes that the final establishment of the cell membrane as a distinct entity from the protoplasm required the convergence of three independent lines of indirect evidence: semi-permeability/solubility, dye/microinjection, and electrophysiology. No visual confirmation was available until the beginning of the 20th century. The above mind map shows the evolution of the other two lines which were available to Bernstein. But the separation between cell membrane and the containing protoplasm was still nascent and around 1890 cell membranes were still considered non-essential ([Lombard, 2014](#ref-Lombard_2014)).  
 
 ## Birth of Modern Physical Chemistry and Electrochemistry
 
 Following the experiments by [Traube](https://en.wikipedia.org/wiki/Moritz_Traube) and [Pfeffer](https://en.wikipedia.org/wiki/Wilhelm_Pfeffer) on precipitation membranes which showed a correlation between the osmotic pressure and the solute concentration and temperature ([Lombard, 2014](#ref-Lombard_2014)), [Van’t Hoff](https://en.wikipedia.org/wiki/Jacobus_Henricus_van_%27t_Hoff) experimentally proved that solutes in dilute solutions follow ideal gas laws ([Pfeffer, 1899](#ref-Pfeffer_1899)). But he was unable to generalize the law to include electrolytes, since the idea of atoms and ions as particles was not yet widely accepted during this time. In the same journal in which Van’t Hoff published his famous law, [Arrhenius](https://en.wikipedia.org/wiki/Svante_Arrhenius)’s dissertation on dissociation of substances in water was included by [Wilhelm Ostwald](https://en.wikipedia.org/wiki/Wilhelm_Ostwald) as an extension which gave the experimental basis for generalization of Van’t Hoff’s Law ([Pfeffer, 1899](#ref-Pfeffer_1899)).  
 
-<img src="electrochemistry_dark.svg" class="wikilink" alt="electrochemistry_dark.svg" />\
+<img src="electrochemistry_dark.svg" class="wikilink" alt="mindmap" />\
 The above diagram shows how [Walther Nernst](https://en.wikipedia.org/wiki/Walther_Nernst) applied various concepts (in green) to derive his famous equation for <a href="Roots/@Smith_2012-07-11/@Smith_2012-07-11#^5b055f" class="wikilink">"Galvanic"</a> potential of an electrochemical cell ([Nernst, 1889](#ref-Nernst_1889)).  
 
 ## Julius Bernstein
@@ -47,7 +46,7 @@ Bernstein’s greatest contributions include,
 #### Membrane Theory (1902):
 
 - Living cells contain a selectively permeable membrane separating the interior and exterior electrolytes. Thus, the cell membrane was the hinge for Bernstein’s model, hence the name “Membrane Theory”. Most of the experiments on cell membranes were limited to plant biology at this time.
-- The electrolytic solutions are different on both sides, which implies the formation of an electrical double layer across the membrane. Bernstein then applied the <a href="#Birth of Modern Physical and Electrochemistry" class="wikilink">concepts of electrochemistry</a> to justify this. He experimentally proved that the measured potential varies linearly with absolute temperature, thereby grounding his theory to Nernst’s equation which was thermodynamically established. Nernst assumed a static state at equilibrium to derive this equation. This assumption became an important detail when succeeding scientists tried to replicate Bernstein’s findings. Thus the electrical separation was already present due to the semi-permeable nature of the membrane, hence the name “pre-existence theory”.
+- The electrolytic solutions are different on both sides, which implies the formation of an electrical double layer across the membrane. Bernstein then applied the <a href="#Birth of Modern Physical Chemistry and Electrochemistry" class="wikilink">concepts of electrochemistry</a> to justify this. He experimentally proved that the measured potential varies linearly with absolute temperature, thereby grounding his theory to Nernst’s equation which was thermodynamically established. Nernst assumed a static state at equilibrium to derive this equation. This assumption became an important detail when succeeding scientists tried to replicate Bernstein’s findings. Thus the electrical separation was already present due to the semi-permeable nature of the membrane, hence the name “pre-existence theory”.
 - The semi-permeable nature of the membrane breaks down during activity, which results in the reduction of potential due to the movement of the ions, hence the name “negative variation”.
 - Bernstein only considered the movement of $K^{+}$ ions and chose to leave out his previous result of overshoot in potential beyond zero which he could not replicate reliably in muscles. Leaving out this finding made sense considering the complete breakdown of semi-permeability, since this should result in a zero potential at peak. Another possible reason for this could have been that Nernst’s equation did not include multiple ion concentrations.
 
