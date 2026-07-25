@@ -50,8 +50,11 @@ export default (() => {
           const rect = container.getBoundingClientRect();
           const mx = e.clientX - rect.left;
           const my = e.clientY - rect.top;
-          const factor = e.deltaY < 0 ? 1.1 : 0.9;
-          const newScale = Math.min(8, Math.max(0.3, scale * factor));
+          // Continuous, delta-proportional factor instead of a fixed step per
+          // event: trackpads emit many small deltaY values (smooth zoom),
+          // mouse wheels emit large discrete ones (still feels responsive).
+          const factor = Math.exp(-e.deltaY * 0.0015);
+          const newScale = Math.min(20, Math.max(0.1, scale * factor));
           panX = mx - (mx - panX) * (newScale / scale);
           panY = my - (my - panY) * (newScale / scale);
           scale = newScale;
