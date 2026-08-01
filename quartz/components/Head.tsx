@@ -36,6 +36,24 @@ export default (() => {
     )
     const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
 
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      url: socialUrl,
+      author: {
+        "@type": "Person",
+        name: "Dr. Akash Mer",
+      },
+      ...(fileData.dates?.created && {
+        datePublished: fileData.dates.created.toISOString(),
+      }),
+      ...(fileData.dates?.modified && {
+        dateModified: fileData.dates.modified.toISOString(),
+      }),
+    }
+
     return (
       <head>
         <title>{title}</title>
@@ -79,6 +97,7 @@ export default (() => {
             <meta property="twitter:domain" content={cfg.baseUrl}></meta>
             <meta property="og:url" content={socialUrl}></meta>
             <meta property="twitter:url" content={socialUrl}></meta>
+            <link rel="canonical" href={socialUrl} />
           </>
         )}
 
@@ -86,6 +105,10 @@ export default (() => {
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
         <meta name="google-site-verification" content="gmr-URXtclXvk4AeM461x51-y1cqokobU22EQVQIOLg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js
