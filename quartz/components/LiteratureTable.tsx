@@ -10,12 +10,6 @@ function formatItemType(raw: string): string {
   return raw.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase())
 }
 
-function formatAuthor(authors: unknown): string {
-  if (!Array.isArray(authors) || authors.length === 0) return ""
-  const first = String(authors[0])
-  return authors.length === 1 ? first : `${first} et al.`
-}
-
 export default (() => {
   function LiteratureTable({ fileData, allFiles, cfg, ctx }: QuartzComponentProps) {
     const slug = fileData.slug ?? ""
@@ -55,11 +49,9 @@ export default (() => {
       const title = (fm["title"] as string | undefined) ?? page.slug ?? ""
       const href = resolveRelative(fileData.slug!, page.slug!)
       const itemType = fm["itemType"] ? formatItemType(String(fm["itemType"])) : ""
-      const author = formatAuthor(fm["authors"])
-      const year = fm["Year"] ? String(fm["Year"]) : ""
       const source = (fm["source"] as string | undefined) ?? ""
 
-      return { dateStr, dateIso, title, href, itemType, author, year, source }
+      return { dateStr, dateIso, title, href, itemType, source }
     })
 
     // Serialize rows for client-side sort
@@ -81,11 +73,7 @@ export default (() => {
               {isWorkbench ? (
                 <th data-col="2">Source</th>
               ) : (
-                <>
-                  <th data-col="2">Type</th>
-                  <th data-col="3">Author</th>
-                  <th data-col="4">Year</th>
-                </>
+                <th data-col="2">Source Type</th>
               )}
             </tr>
           </thead>
@@ -99,11 +87,7 @@ export default (() => {
                     {r.source ? <a href={r.source} class="external" target="_blank" rel="noopener">Source ↗</a> : ""}
                   </td>
                 ) : (
-                  <>
-                    <td class="lit-type">{r.itemType}</td>
-                    <td class="lit-author">{r.author}</td>
-                    <td class="lit-year">{r.year}</td>
-                  </>
+                  <td class="lit-type">{r.itemType}</td>
                 )}
               </tr>
             ))}
@@ -132,13 +116,11 @@ export default (() => {
             default: return "";
           }
         }
-        // col 0 = dateIso (sort key), col 1 = title, col 2 = itemType, col 3 = author, col 4 = year
+        // col 0 = dateIso (sort key), col 1 = title, col 2 = itemType
         switch (col) {
           case 0: return row.dateIso;
           case 1: return row.title.toLowerCase();
           case 2: return row.itemType.toLowerCase();
-          case 3: return row.author.toLowerCase();
-          case 4: return row.year;
           default: return "";
         }
       }
@@ -154,9 +136,7 @@ export default (() => {
         tbody.innerHTML = sorted.map(r => {
           const extraCells = tableType === "workbench"
             ? '<td class="lit-source">' + (r.source ? '<a href="' + r.source + '" class="external" target="_blank" rel="noopener">Source ↗</a>' : '') + '</td>'
-            : '<td class="lit-type">' + r.itemType + '</td>' +
-              '<td class="lit-author">' + r.author + '</td>' +
-              '<td class="lit-year">' + r.year + '</td>';
+            : '<td class="lit-type">' + r.itemType + '</td>';
           return '<tr>' +
             '<td class="lit-date"><time datetime="' + r.dateIso + '">' + r.dateStr + '</time></td>' +
             '<td class="lit-title"><a href="' + r.href + '" class="internal">' + r.title + '</a></td>' +
@@ -172,7 +152,7 @@ export default (() => {
             sortDir = sortDir === "asc" ? "desc" : "asc";
           } else {
             sortCol = col;
-            sortDir = col === 0 || col === 4 ? "desc" : "asc";
+            sortDir = col === 0 ? "desc" : "asc";
           }
           ths.forEach(t => t.removeAttribute("aria-sort"));
           th.setAttribute("aria-sort", sortDir === "asc" ? "ascending" : "descending");
