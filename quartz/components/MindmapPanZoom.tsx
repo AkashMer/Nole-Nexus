@@ -6,102 +6,119 @@ export default (() => {
   }
 
   MindmapPanZoom.afterDOMLoaded = `
+    function setupOneMindmap(img, maxHeight) {
+      if (img.parentElement && img.parentElement.classList.contains("mindmap-container")) return;
+
+      const container = document.createElement("div");
+      container.className = "mindmap-container";
+      img.before(container);
+      container.appendChild(img);
+
+      let scale = 1;
+      let panX = 0;
+      let panY = 0;
+      let dragging = false;
+      let lastX = 0;
+      let lastY = 0;
+
+      function applyTransform() {
+        img.style.transform = "translate(" + panX + "px, " + panY + "px) scale(" + scale + ")";
+      }
+
+      function fitToContainer() {
+        const cw = container.clientWidth;
+        const iw = img.naturalWidth || 800;
+        const ih = img.naturalHeight || 600;
+
+        // Size the container to the image's own aspect ratio instead of a
+        // flat height, so the image fills the full column width with no
+        // side dead space. Diagrams over maxHeight are capped there instead
+        // (dead space returns on the sides, but the box stays compact) —
+        // pass Infinity to let a diagram grow as tall as it needs.
+        const idealHeight = Math.min(ih, cw * (ih / iw));
+        const minHeight = 300;
+        container.style.height = Math.min(maxHeight, Math.max(minHeight, idealHeight)) + "px";
+
+        const ch = container.clientHeight;
+        scale = Math.min(cw / iw, ch / ih, 1);
+        panX = (cw - iw * scale) / 2;
+        panY = (ch - ih * scale) / 2;
+        applyTransform();
+      }
+
+      if (img.complete && img.naturalWidth) {
+        fitToContainer();
+      } else {
+        img.addEventListener("load", fitToContainer);
+        window.addCleanup(function() { img.removeEventListener("load", fitToContainer); });
+      }
+
+      function onWheel(e) {
+        if (!e.ctrlKey && !e.metaKey) return;
+        e.preventDefault();
+        const rect = container.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        // Continuous, delta-proportional factor instead of a fixed step per
+        // event: trackpads emit many small deltaY values (smooth zoom),
+        // mouse wheels emit large discrete ones (still feels responsive).
+        const factor = Math.exp(-e.deltaY * 0.0015);
+        const newScale = Math.min(20, Math.max(0.1, scale * factor));
+        panX = mx - (mx - panX) * (newScale / scale);
+        panY = my - (my - panY) * (newScale / scale);
+        scale = newScale;
+        applyTransform();
+      }
+
+      function onMouseDown(e) {
+        dragging = true;
+        lastX = e.clientX;
+        lastY = e.clientY;
+        container.style.cursor = "grabbing";
+        e.preventDefault();
+      }
+
+      function onMouseMove(e) {
+        if (!dragging) return;
+        panX += e.clientX - lastX;
+        panY += e.clientY - lastY;
+        lastX = e.clientX;
+        lastY = e.clientY;
+        applyTransform();
+      }
+
+      function onMouseUp() {
+        if (!dragging) return;
+        dragging = false;
+        container.style.cursor = "grab";
+      }
+
+      function onDblClick() {
+        scale = 1; panX = 0; panY = 0;
+        fitToContainer();
+      }
+
+      container.addEventListener("wheel", onWheel, { passive: false });
+      container.addEventListener("mousedown", onMouseDown);
+      container.addEventListener("dblclick", onDblClick);
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+
+      window.addCleanup(function() {
+        container.removeEventListener("wheel", onWheel);
+        container.removeEventListener("mousedown", onMouseDown);
+        container.removeEventListener("dblclick", onDblClick);
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      });
+    }
+
     function setupMindmapPanZoom() {
       document.querySelectorAll('img[alt="mindmap"]').forEach(function(img) {
-        if (img.parentElement && img.parentElement.classList.contains("mindmap-container")) return;
-
-        const container = document.createElement("div");
-        container.className = "mindmap-container";
-        img.before(container);
-        container.appendChild(img);
-
-        let scale = 1;
-        let panX = 0;
-        let panY = 0;
-        let dragging = false;
-        let lastX = 0;
-        let lastY = 0;
-
-        function applyTransform() {
-          img.style.transform = "translate(" + panX + "px, " + panY + "px) scale(" + scale + ")";
-        }
-
-        function fitToContainer() {
-          const cw = container.clientWidth;
-          const ch = container.clientHeight;
-          const iw = img.naturalWidth || 800;
-          const ih = img.naturalHeight || 600;
-          scale = Math.min(cw / iw, ch / ih, 1);
-          panX = (cw - iw * scale) / 2;
-          panY = (ch - ih * scale) / 2;
-          applyTransform();
-        }
-
-        if (img.complete && img.naturalWidth) {
-          fitToContainer();
-        } else {
-          img.addEventListener("load", fitToContainer);
-          window.addCleanup(function() { img.removeEventListener("load", fitToContainer); });
-        }
-
-        function onWheel(e) {
-          if (!e.ctrlKey && !e.metaKey) return;
-          e.preventDefault();
-          const rect = container.getBoundingClientRect();
-          const mx = e.clientX - rect.left;
-          const my = e.clientY - rect.top;
-          // Continuous, delta-proportional factor instead of a fixed step per
-          // event: trackpads emit many small deltaY values (smooth zoom),
-          // mouse wheels emit large discrete ones (still feels responsive).
-          const factor = Math.exp(-e.deltaY * 0.0015);
-          const newScale = Math.min(20, Math.max(0.1, scale * factor));
-          panX = mx - (mx - panX) * (newScale / scale);
-          panY = my - (my - panY) * (newScale / scale);
-          scale = newScale;
-          applyTransform();
-        }
-
-        function onMouseDown(e) {
-          dragging = true;
-          lastX = e.clientX;
-          lastY = e.clientY;
-          container.style.cursor = "grabbing";
-          e.preventDefault();
-        }
-
-        function onMouseMove(e) {
-          if (!dragging) return;
-          panX += e.clientX - lastX;
-          panY += e.clientY - lastY;
-          lastX = e.clientX;
-          lastY = e.clientY;
-          applyTransform();
-        }
-
-        function onMouseUp() {
-          if (!dragging) return;
-          dragging = false;
-          container.style.cursor = "grab";
-        }
-
-        function onDblClick() {
-          scale = 1; panX = 0; panY = 0;
-          fitToContainer();
-        }
-
-        container.addEventListener("wheel", onWheel, { passive: false });
-        container.addEventListener("mousedown", onMouseDown);
-        container.addEventListener("dblclick", onDblClick);
-        document.addEventListener("mousemove", onMouseMove);
-        document.addEventListener("mouseup", onMouseUp);
-
-        window.addCleanup(function() {
-          container.removeEventListener("wheel", onWheel);
-          container.removeEventListener("mousedown", onMouseDown);
-          container.removeEventListener("dblclick", onDblClick);
-          document.removeEventListener("mousemove", onMouseMove);
-          document.removeEventListener("mouseup", onMouseUp);
-        });
+        setupOneMindmap(img, 600);
+      });
+      document.querySelectorAll('img[alt="tall-mindmap"]').forEach(function(img) {
+        setupOneMindmap(img, Infinity);
       });
     }
 
