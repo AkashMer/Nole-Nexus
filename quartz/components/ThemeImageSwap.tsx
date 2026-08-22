@@ -9,10 +9,18 @@ export default (() => {
     function swapImages(theme) {
       document.querySelectorAll("img").forEach(img => {
         const src = img.getAttribute("src") || "";
-        if (theme === "light" && src.includes("_dark.")) {
-          img.setAttribute("src", src.replace("_dark.", "_light."));
-        } else if (theme === "dark" && src.includes("_light.")) {
-          img.setAttribute("src", src.replace("_light.", "_dark."));
+        if (theme === "light") {
+          if (src.includes("_dark.")) {
+            img.setAttribute("src", src.replace("_dark.", "_light."));
+          } else if (src.includes("-dark.")) {
+            img.setAttribute("src", src.replace("-dark.", "-light."));
+          }
+        } else if (theme === "dark") {
+          if (src.includes("_light.")) {
+            img.setAttribute("src", src.replace("_light.", "_dark."));
+          } else if (src.includes("-light.")) {
+            img.setAttribute("src", src.replace("-light.", "-dark."));
+          }
         }
       });
     }
