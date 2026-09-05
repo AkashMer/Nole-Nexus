@@ -4,7 +4,7 @@ modified: 2026-06-09
 Title: Estimation of Representational Maps in Mouse Visual Areas (Noda et al., 2024)
 authors:
   - Dr. Akash Mer
-source: https://github.com/AkashMer/workbench/tree/main/scripts/noda-rep-maps-pipeline
+source: https://github.com/AkashMer/workbench/tree/main/noda-rep-maps-pipeline
 ---
 This post implements the representational map estimation pipeline
 visualized in [[Landscape/@Noda_2024-03-22/@Noda_2024-03-22|Representational maps in the brain: concepts, approaches, and applications]].

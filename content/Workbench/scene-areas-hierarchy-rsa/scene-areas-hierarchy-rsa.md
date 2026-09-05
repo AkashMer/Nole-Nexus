@@ -4,7 +4,7 @@ modified: 2026-07-22
 Title: Multiple Regression RSA of Scene-Selective Areas in Human fMRI
 authors:
   - Dr. Akash Mer
-source: https://github.com/AkashMer/workbench/tree/main/scripts/scene-areas-hierarchy-rsa
+source: https://github.com/AkashMer/workbench/tree/main/scene-areas-hierarchy-rsa
 ---
 This post uses human fMRI data to answer the following question: <a href="Landscape/@Epstein_2019/@Epstein_2019" class="wikilink">Can the relationship between low-level features and the higher-level scene information and the hierarchical nature of scene-selective areas be demonstrated using RSA?</a>.
 
