@@ -442,10 +442,12 @@ Figure 2: **Mean respond and median error across target heading bins**
   (<a href="#fig-respond-error-by-target" class="quarto-xref">Figure 2</a>(b)).
 - The growing uncertainty in `respond` tracks `error` directly, since:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 &respond = target + error \\
 \implies &Var(respond) = Var(target) + Var(error) + 2\;Cov(target, error)
-\end{aligned}$$
+\end{aligned}
+$$
 
 The repeated measures correlation between `target` and `error` is
 negligible ($r$ = 0.028, 95% CI \[0.009, 0.047\]). Thus, `error` can be
@@ -1095,11 +1097,13 @@ and penalize overfitting due to noise.
 This model naively assumes that error depends only on the proprioceptive
 signal available from target and amount of time it takes to respond.
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{error} &\sim SST(\mu, \sigma, \nu, \tau) \\
 \mu &= f_1(\text{target}) + f_2(\text{trial\_duration}) + b_{subj} \\
 \log(\sigma) &= f_3(\text{target}) + f_4(\text{trial\_duration}) + b_{subj}
-\end{aligned}$$
+\end{aligned}
+$$
 
 where each $f_i$ is a penalized smooth function and $b_{subj}$ is a
 random intercept for per-subject fit. No collinearity existed between
@@ -1195,11 +1199,13 @@ A visual only model which assumes that error depends only on the visual
 signal available from target and the visual feedback’s reliability was
 built first.
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{error} &\sim SST(\mu, \sigma, \nu, \tau) \\
 \mu &= f_1(\text{target}) + f_2(\text{fb\_offset}) + b_{subj} \\
 \log(\sigma) &= f_3(\text{target}) + f_4(\text{fb\_offset}) + b_{subj}
-\end{aligned}$$
+\end{aligned}
+$$
 
 The cue combination model combines the unisensory and visual only
 models’ predictions by weighting them according to their precisions
@@ -1338,12 +1344,14 @@ formulas since the SD of the prediction is represented by $\sigma$
 alone, unlike other skewed distributions (for example skew-normal) which
 compute SD of predictions using $\sigma$ and $\nu$ parameters.
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{error} &\sim SST(\mu, \sigma, \nu, \tau) \\
 \mu &= f_1(\text{target}) + f_2(\text{trial\_duration}) + f_3(\text{fb\_offset}) + f_4(\text{viewAmount}) \\
     &\quad + g_1(\text{target}, \text{fb\_offset}) + g_2(\text{trial\_duration}, \text{fb\_offset}) + g_3(\text{viewAmount}, \text{fb\_offset}) + b_{subj} \\
 \log(\sigma) &= \text{(same structure as } \mu\text{)}
-\end{aligned}$$
+\end{aligned}
+$$
 
 where each $g_i$ is a varying-coefficient smooth function for
 interactions between variables and their effect modifiers.
