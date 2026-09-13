@@ -1082,7 +1082,7 @@ penalized maximum likelihood estimatation (MLE) to fit models. A
 distribution family for the predicted variable can be selected from a
 very general family of distributions. A skew-t (`SST`) family fit the
 error distribution far better than a normal distribution (see
-<a href="#sec-appendix" class="quarto-xref">Section 7</a>). The same
+[Appendix](#appendix)). The same
 family was used for the following models. The shape parameters
 (skewness, $\nu$ and kurtosis, $\tau$) were not modelled since the
 overall shape of the uncertainty is usually unique to each individual
