@@ -9,6 +9,8 @@ Year: 2026
 citekey: ViscontidiOleggioCastello_2026
 itemType: preprint
 sourceTitle: "Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework"
+created: 2026-10-03
+modified: 2026-10-03
 ---
 
 During a recent interview for a lab position, the discussion about <a href="workbench/scene-areas-hierarchy-rsa/scene-areas-hierarchy-rsa" class="wikilink">Multiple Regression RSA of Scene-Selective Areas in Human fMRI</a> approached the following question:
