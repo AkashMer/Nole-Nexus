@@ -9,8 +9,6 @@ Year: 2026
 citekey: ViscontidiOleggioCastello_2026
 itemType: preprint
 sourceTitle: "Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework"
-created: 2026-10-03
-modified: 2026-10-03
 ---
 
 During a recent interview for a lab position, the discussion about <a href="workbench/scene-areas-hierarchy-rsa/scene-areas-hierarchy-rsa" class="wikilink">Multiple Regression RSA of Scene-Selective Areas in Human fMRI</a> approached the following question:
@@ -36,7 +34,7 @@ VEM framework solves the above problem by using **Regularized Linear Regression*
 ## The Voxel-wise Encoding Model Framework
 
 <img src="vem-framework-dark.svg" class="wikilink" width="371" />\
-<a href="#Appendix" class="wikilink">(see full map in Appendix)</a>
+<a href="#appendix" class="wikilink">(see full map in Appendix)</a>\
 *On the surface, VEM is about modelling the neural activity captured during fMRI. But at the core, VEM framework is highly versatile due to the use of regularization and following a structured path grounded in good data science practices alchemizes the versatility to interpretability.*\
 I chose to use the word alchemize because it involves structured frameworks for transforming raw materials into something that can used. Similarly, VEM framework transforms the raw feature spaces and the recorded neural data into a model which can be used to interpret neural data as long as the pitfalls are known. The alchemist in the above visual plays the role of the VEM framework.
 
